@@ -14,7 +14,7 @@ const MovieDetails = () => {
   const url = useLocation().pathname;
 
   //   state to store the movies
-  const [movies, setMovies] = useState(MovieList);
+  const [movies] = useState(MovieList);
 
   //   state to store requested movie details
   const [movie, setmovie] = useState(null);

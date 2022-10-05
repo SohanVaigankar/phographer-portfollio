@@ -1,6 +1,6 @@
 import React from "react";
-import { Link, Navigate, useLocation } from "react-router-dom";
-import { animate, motion } from "framer-motion";
+import { Link,  useLocation } from "react-router-dom";
+import {  motion } from "framer-motion";
 
 const Nav = () => {
   const regex = new RegExp(/\/work*/)
