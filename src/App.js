@@ -1,25 +1,37 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+// react-router
+import { Routes, Route, useLocation } from "react-router-dom";
 
-function App() {
+import Nav from "./components/Nav";
+import ContactUs from "./pages/ContactUs";
+import OurWork from "./pages/OurWork";
+import AboutUs from "./pages/AboutUs";
+import PageNotFound from "./pages/PageNotFound";
+import MovieDetails from "./pages/MovieDetails";
+import ScrollToTop from "./components/ScrollToTop";
+
+import "./styles/app.scss";
+
+import { AnimatePresence } from "framer-motion";
+
+const App = () => {
+  const location = useLocation();
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <ScrollToTop />
+      <Nav />
+      <AnimatePresence exitBeforeEnter>
+        <Routes location={location} key={location.pathname}>
+          <Route exact path="/" element={<AboutUs />} />
+          <Route exact path="/work" element={<OurWork />} />
+          <Route path="/work/:id" element={<MovieDetails />} />
+          <Route exact path="/contact" element={<ContactUs />} />
+          <Route path="*" element={<PageNotFound />} />
+        </Routes>
+      </AnimatePresence>
     </div>
   );
-}
+};
 
 export default App;
