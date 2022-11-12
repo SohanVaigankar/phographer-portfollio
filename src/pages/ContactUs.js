@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 //animation
 import { motion } from "framer-motion";
@@ -20,21 +21,26 @@ const ContactUs = () => {
         </div>
       </div>
       <div className="hide">
-        <motion.div className="social-handles" variants={titleAnimation}>
+        <motion.div
+          className="social-handles twitter"
+          variants={titleAnimation}
+        >
           <motion.div className="circle"></motion.div>
-          <h2>Send Us A Message</h2>
+          <Link to="https://twitter.com/sohanv_" className="twitter">slide into our DMs</Link>
+        </motion.div>
+      </div>
+      <div className="hide">
+        <motion.div className="social-handles email" variants={titleAnimation}>
+          <motion.div className="circle"></motion.div>
+          <Link to="#"className="email">send us an email</Link>
         </motion.div>
       </div>
       <div className="hide">
         <motion.div className="social-handles" variants={titleAnimation}>
           <motion.div className="circle"></motion.div>
-          <h2>Send Us An Email</h2>
-        </motion.div>
-      </div>
-      <div className="hide">
-        <motion.div className="social-handles" variants={titleAnimation}>
-          <motion.div className="circle"></motion.div>
-          <h2>send us a message</h2>
+          <h2>
+            <span>phone:</span> (+91) 420-694-2069
+          </h2>
         </motion.div>
       </div>
     </motion.div>
